@@ -23,7 +23,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
           title: const Text('Hello'),
           centerTitle: true,
         ),
-        body: PortfolioList(),
+        body: const PortfolioList(),
       ),
     );
   }

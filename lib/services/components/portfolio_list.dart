@@ -14,7 +14,7 @@ class _PortfolioListState extends State<PortfolioList> {
   Widget build(BuildContext context) {
     late var portfolios = Provider.of<List<PortfolioModel>?>(context);
     if(portfolios == null){
-      return Center(child: Text('No data'),);
+      return const Center(child: Text('No data'),);
     }
     else{
       return ListView.builder(
