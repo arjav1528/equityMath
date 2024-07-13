@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "343535721195",
+    "project_id": "stock-math-final",
+    "storage_bucket": "stock-math-final.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:343535721195:android:ab5ab107c95d44a76a7cae",
+        "android_client_info": {
+          "package_name": "com.example.stock_math_final"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "343535721195-inu1g1217p21kq71mntaeptpi23bv7ek.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.stock_math_final",
+            "certificate_hash": "c1ab27a931662ef31ec4884ed8759ee98c4dd65b"
+          }
+        },
+        {
+          "client_id": "343535721195-i4ikjc5r8lgrnp0j5kc07ejd1vh08emd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCowSFKZ6QktutUoVBCFjZawESoMF6jKCI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "343535721195-i4ikjc5r8lgrnp0j5kc07ejd1vh08emd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "343535721195-28mcegb84ubldcnql3mtrmp5db5m03ct.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.stockMathFinal"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
