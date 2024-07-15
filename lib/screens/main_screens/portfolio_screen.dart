@@ -19,7 +19,6 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
   String username = '';
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     email = FirebaseAuth.instance.currentUser!.email;
     username = email!.substring(0,email!.indexOf('@'));
