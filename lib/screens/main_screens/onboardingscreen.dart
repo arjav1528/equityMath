@@ -15,6 +15,8 @@ class _OnboardingscreenState extends State<Onboardingscreen> {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 130, 123, 230),
       body: Stack(
@@ -49,7 +51,7 @@ class _OnboardingscreenState extends State<Onboardingscreen> {
                     ],
                   ),
                   SizedBox(
-                    height: 300,
+                    height: height * 0.392156863,
                     child: Padding(
                       padding: const EdgeInsets.all(20),
                       child: TypewriterText(homescreen: false, text: 'Eat..Sleep..Trade',),
@@ -62,8 +64,8 @@ class _OnboardingscreenState extends State<Onboardingscreen> {
                       onClick: (){
                         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>  AuthStream()));
                       },
-                      buttonHeight: 70,
-                      buttonWidth: 250,
+                      buttonHeight: height * 0.091503268,
+                      buttonWidth: width * 0.684931507,
                       animationDuration: const Duration(milliseconds: 200),
                       animationCurve: Curves.easeIn,
                       topDecoration: BoxDecoration(

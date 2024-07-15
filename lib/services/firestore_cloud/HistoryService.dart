@@ -24,12 +24,8 @@ class Historyservice{
       'sell_rate' : sellrate,
       'status' : status,
       'timestamp' : FieldValue.serverTimestamp()
-
-
-
     });
   }
-
   List<PortfolioModel> _portfolioList(QuerySnapshot snapshot){
     return snapshot.docs.map((doc){
       return PortfolioModel(
@@ -42,22 +38,15 @@ class Historyservice{
           status: doc['status'],
           stock_symbol: doc['stock_symbol'],
           timestamp: doc['timestamp']
-
-
-
       );
     }).toList();
   }
-
-
-
   Stream<List<PortfolioModel>> get portfolio {
     return _firestore
         .collection('users')
         .doc(uid)
         .collection('Transactions')
         .orderBy('timestamp',descending: true)
-        .limit(5)
         .snapshots()
         .map(_portfolioList);
   }

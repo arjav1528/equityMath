@@ -222,7 +222,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     double slow = double.parse(rates['Time Series (Daily)'][selldate.text]['3. low']);
                     purchaserate = average(phigh, plow);
                     sellrate = average(shigh, slow);
-                    await Historyservice().saveTransaction('RELIANCE.BSE', purchasedate.text, selldate.text, double.parse(quantity.text), purchaserate, sellrate);
+                    await Historyservice().saveTransaction(stocksymbol.text, purchasedate.text, selldate.text, double.parse(quantity.text), purchaserate, sellrate);
 
                   },
                   buttonHeight: 45,

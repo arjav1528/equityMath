@@ -1,3 +1,6 @@
+
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,15 +15,26 @@ class PortfolioScreen extends StatefulWidget {
   State<PortfolioScreen> createState() => _PortfolioScreenState();
 }
 class _PortfolioScreenState extends State<PortfolioScreen> {
-
+  String? email;
+  String username = '';
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    email = FirebaseAuth.instance.currentUser!.email;
+    username = email!.substring(0,email!.indexOf('@'));
+  }
+  @override
+
   Widget build(BuildContext context) {
+
+
     return StreamProvider<List<PortfolioModel>?>.value(
       value: Historyservice().portfolio,
       initialData: null,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Hello'),
+          title: Text(username,style: TextStyle(color: Colors.black),),
           centerTitle: true,
         ),
         body: const PortfolioList(),

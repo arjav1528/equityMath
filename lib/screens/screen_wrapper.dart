@@ -29,7 +29,6 @@ class _ScreenWrapperState extends State<ScreenWrapper> {
             Icon(Icons.home),
             Icon(Icons.person),
             Icon(Icons.logout),
-            Icon(Icons.abc)
           ],
           onTap: (index){
             if(index==1){
@@ -49,14 +48,6 @@ class _ScreenWrapperState extends State<ScreenWrapper> {
             if(index == 2){
               setState(() async {
                 await AuthServices().signUserOut();
-              });
-
-            }
-            if(index == 3){
-              setState(() {
-                homescreen = false;
-                portfolioscreen = false;
-                tempscreen = true;
               });
 
             }
