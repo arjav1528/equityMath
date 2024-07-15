@@ -34,7 +34,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
       initialData: null,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(username,style: TextStyle(color: Colors.black),),
+          title: Text(username,style: const TextStyle(color: Colors.black),),
           centerTitle: true,
         ),
         body: const PortfolioList(),
