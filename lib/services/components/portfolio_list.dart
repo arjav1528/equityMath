@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:stock_math_final/services/components/portfolio_card.dart';
+import 'package:stock_math_final/services/components/typewriter_text.dart';
 
 import '../../models/portfolio_model.dart';
 class PortfolioList extends StatefulWidget {
@@ -38,7 +40,16 @@ class _PortfolioListState extends State<PortfolioList> {
       );
     }
     else{
-      return Center(child: Text('No data'),);
-    }
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TypewriterText(text: 'Error 404', homescreen: true),
+            Text('Data Not Found',style: GoogleFonts.sourceCodePro(),),
+            Text('Return to Home Screen',style: GoogleFonts.sourceCodePro(),),
+            Text('and update your Portfolio',style: GoogleFonts.sourceCodePro(),),
+          ],
+        ),
+      );    }
   }
 }

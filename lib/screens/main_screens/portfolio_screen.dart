@@ -45,21 +45,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
             Spacer(flex: 5,)
           ],
         ),
-        body: portfolios == null
-            ?
-        Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TypewriterText(text: 'Error 404', homescreen: true),
-              Text('Data Not Found',style: GoogleFonts.sourceCodePro(),),
-              Text('Return to Home Screen',style: GoogleFonts.sourceCodePro(),),
-              Text('and update your Portfolio',style: GoogleFonts.sourceCodePro(),),
-            ],
-          ),
-        )
-            :
-        PortfolioList()
+        body: PortfolioList()
       ),
     );
   }
