@@ -58,7 +58,7 @@ class _OnboardingscreenState extends State<Onboardingscreen> {
 
                     ),
                   ),
-                  SizedBox(height: 130,),
+                  SizedBox(height: height * 0.130718954,),
                   Center(
                     child: ElevatedLayerButton(
                       onClick: (){
@@ -77,6 +77,16 @@ class _OnboardingscreenState extends State<Onboardingscreen> {
                           color: Colors.green,
                           border: Border.all()
                       ),
+                    ),
+                  ),
+                  SizedBox(height: height * 0.052287582,),
+                  Center(
+                    child: Column(
+                      children: [
+                        Text('A Stock Return Calculator By',
+                        style: GoogleFonts.sourceCodePro(color: Colors.white,fontSize: 16),),
+                        Text('Arjav Patel',style: GoogleFonts.sourceCodePro(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 25),),
+                      ],
                     ),
                   ),
                   const Spacer()

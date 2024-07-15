@@ -2,7 +2,9 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:stock_math_final/services/components/typewriter_text.dart';
 
 import '../../models/portfolio_model.dart';
 import '../../services/components/portfolio_list.dart';
@@ -26,17 +28,38 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
   @override
 
   Widget build(BuildContext context) {
-
-
+    late var portfolios = Provider.of<List<PortfolioModel>?>(context);
     return StreamProvider<List<PortfolioModel>?>.value(
       value: Historyservice().portfolio,
       initialData: null,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(username,style: const TextStyle(color: Colors.black),),
-          centerTitle: true,
+          actions: [
+            Spacer(flex: 1,),
+
+            Text('$username’s Portfolio',
+            style: GoogleFonts.sourceCodePro(
+              fontWeight: FontWeight.bold,
+              fontSize: 20
+            ),),
+            Spacer(flex: 5,)
+          ],
         ),
-        body: const PortfolioList(),
+        body: portfolios == null
+            ?
+        Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TypewriterText(text: 'Error 404', homescreen: true),
+              Text('Data Not Found',style: GoogleFonts.sourceCodePro(),),
+              Text('Return to Home Screen',style: GoogleFonts.sourceCodePro(),),
+              Text('and update your Portfolio',style: GoogleFonts.sourceCodePro(),),
+            ],
+          ),
+        )
+            :
+        PortfolioList()
       ),
     );
   }

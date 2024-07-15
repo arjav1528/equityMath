@@ -46,6 +46,7 @@ class Historyservice{
         .collection('users')
         .doc(uid)
         .collection('Transactions')
+        .limit(5)
         .orderBy('timestamp',descending: true)
         .snapshots()
         .map(_portfolioList);
