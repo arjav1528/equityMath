@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Column(
               children: [
-                SizedBox(height: height * 0.196078431,),
+                SizedBox(height: height * 0.339869281,),
                 Opacity(
                   opacity: 0.1,
                   child: Center(
@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SafeArea(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 0),
+                padding: EdgeInsets.symmetric(horizontal: width * 0.055555556),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
         
                     ),
                     const Divider(),
-                    SizedBox(height:height *0.026143791 ,),
+                    SizedBox(height:height * 0.026143791 ,),
                     Center(
                         child: TypewriterText(text: 'Bought or Sold',homescreen: true,)
                     ),
@@ -99,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(top: 8,bottom: 16),
+                            padding: EdgeInsets.only(top: height * 0.010457516,bottom: width * 0.044444444),
                             child: TextFormField(
                               onChanged: (val){},
                               controller: stocksymbol,
@@ -129,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: 8,bottom: 16),
+                            padding: EdgeInsets.only(top: height * 0.010457516,bottom: width * 0.044444444),
                             child: TextFormField(
                               onChanged: (val){},
                               controller: quantity,
@@ -164,7 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: 8,bottom: 16),
+                            padding: EdgeInsets.only(top: height * 0.010457516,bottom: width * 0.044444444),
                             child: TextFormField(
                               onTap: (){
                                 _selectDate(purchasedate);
@@ -202,7 +202,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: 8,bottom: 16),
+                            padding: EdgeInsets.only(top: height * 0.010457516,bottom: width * 0.044444444),
                             child: TextFormField(
                               onTap: (){
                                 _selectDate(selldate);
@@ -265,8 +265,8 @@ class _HomeScreenState extends State<HomeScreen> {
         
         
                         },
-                        buttonHeight: 45,
-                        buttonWidth: 250,
+                        buttonHeight: height * 0.058823529,
+                        buttonWidth: width * 0.694444444,
                         animationDuration: const Duration(milliseconds: 200),
                         animationCurve: Curves.easeIn,
                         topDecoration: BoxDecoration(
