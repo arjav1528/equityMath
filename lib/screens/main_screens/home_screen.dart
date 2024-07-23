@@ -6,7 +6,6 @@ import 'package:flutter/services.dart';
 import 'package:gif_view/gif_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_animated_button/elevated_layer_button.dart';
-
 import '../../services/API/remote_service.dart';
 import '../../services/components/typewriter_text.dart';
 import '../../services/firestore_cloud/HistoryService.dart';
