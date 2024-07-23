@@ -18,11 +18,16 @@ class PortfolioScreen extends StatefulWidget {
 class _PortfolioScreenState extends State<PortfolioScreen> {
   String? email;
   String username = '';
+  String final_username = '';
   @override
   void initState() {
     super.initState();
     email = FirebaseAuth.instance.currentUser!.email;
     username = email!.substring(0,email!.indexOf('@'));
+    if(username.length > 7){
+      final_username = username.substring(0,8);
+      final_username += '..';
+    }
   }
   @override
 
@@ -35,7 +40,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
           actions: [
             const Spacer(flex: 1,),
 
-            Text('$username’s Portfolio',
+            Text('$final_username’s Portfolio',
             style: GoogleFonts.sourceCodePro(
               fontWeight: FontWeight.bold,
               fontSize: 20
