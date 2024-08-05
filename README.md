@@ -36,7 +36,7 @@ https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=HDFCBANK.BSE
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `api_key` | `string` | HE2HF1UQVBPHZ4XC |
+| `api_key` | `string` | NA |
 
 Takes Stock Symbol and returns json file which stores stock prices of given stock 
 
