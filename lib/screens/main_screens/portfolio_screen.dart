@@ -1,9 +1,12 @@
 
 
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:stock_math_final/services/components/nulldata.dart';
 
 import '../../models/portfolio_model.dart';
 import '../../services/components/portfolio_list.dart';
@@ -19,6 +22,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
   String? email;
   String username = '';
   String final_username = '';
+  Stream<List<PortfolioModel>>? portfolios = Historyservice().portfolio;
   @override
   void initState() {
     super.initState();
@@ -33,23 +37,31 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
 
   Widget build(BuildContext context) {
     return StreamProvider<List<PortfolioModel>?>.value(
-      value: Historyservice().portfolio,
+      value: portfolios,
       initialData: null,
-      child: Scaffold(
-        appBar: AppBar(
-          actions: [
-            const Spacer(flex: 1,),
+      builder: (context,snapshot){
+        if(portfolios==null){
+          // ignore: prefer_const_constructors
+          return Nulldata();
+        }
+        else{
+          return Scaffold(
+              appBar: AppBar(
+                actions: [
+                  const Spacer(flex: 1,),
 
-            Text('$final_username’s Portfolio',
-            style: GoogleFonts.sourceCodePro(
-              fontWeight: FontWeight.bold,
-              fontSize: 20
-            ),),
-            const Spacer(flex: 5,)
-          ],
-        ),
-        body: const PortfolioList()
-      ),
+                  Text('$final_username’s Portfolio',
+                    style: GoogleFonts.sourceCodePro(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20
+                    ),),
+                  const Spacer(flex: 5,)
+                ],
+              ),
+              body: const PortfolioList()
+          );
+        }
+      },
     );
   }
 }

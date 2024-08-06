@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:stock_math_final/services/components/nulldata.dart';
 import 'package:stock_math_final/services/components/portfolio_card.dart';
 
 import '../../models/portfolio_model.dart';
@@ -44,7 +43,7 @@ class _PortfolioListState extends State<PortfolioList> {
       );
     }
     else{
-      return const Nulldata();
+      return const Center(child: CircularProgressIndicator());
     }
   }
 }
