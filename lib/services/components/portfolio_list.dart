@@ -1,5 +1,8 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:stock_math_final/services/components/nulldata.dart';
 import 'package:stock_math_final/services/components/portfolio_card.dart';
 
 import '../../models/portfolio_model.dart';
@@ -20,27 +23,33 @@ class _PortfolioListState extends State<PortfolioList> {
     double width = MediaQuery.of(context).size.width;
 
     if (portfolios != null) {
-      return ListView.builder(
-        itemCount: portfolios.length,
-        itemBuilder: (context,index){
-          return Padding(
-            padding: EdgeInsets.symmetric(vertical: height * .004966887,horizontal: width * 0.010416667),
-            child: Center(
-              child: PortfolioCard(
-                amount: portfolios[index].amount,
-                purchasedate: portfolios[index].purchase_date,
-                purchaserate: portfolios[index].purchase_rate,
-                quantity: portfolios[index].quantity,
-                sellrate: portfolios[index].sell_rate,
-                selldate: portfolios[index].sell_date,
-                status: portfolios[index].status,
-                stock_symbol: portfolios[index].stock_symbol,
-              ),
-            ),
-          );
-        },
 
-      );
+      if(portfolios.length ==0){
+        return Nulldata();
+      }
+      else{
+        return ListView.builder(
+          itemCount: portfolios.length,
+          itemBuilder: (context,index){
+            return Padding(
+              padding: EdgeInsets.symmetric(vertical: height * .004966887,horizontal: width * 0.010416667),
+              child: Center(
+                child: PortfolioCard(
+                  amount: portfolios[index].amount,
+                  purchasedate: portfolios[index].purchase_date,
+                  purchaserate: portfolios[index].purchase_rate,
+                  quantity: portfolios[index].quantity,
+                  sellrate: portfolios[index].sell_rate,
+                  selldate: portfolios[index].sell_date,
+                  status: portfolios[index].status,
+                  stock_symbol: portfolios[index].stock_symbol,
+                ),
+              ),
+            );
+          },
+
+        );
+      }
     }
     else{
       return const Center(child: CircularProgressIndicator());
