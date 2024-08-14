@@ -24,8 +24,8 @@ class _PortfolioListState extends State<PortfolioList> {
 
     if (portfolios != null) {
 
-      if(portfolios.length ==0){
-        return Nulldata();
+      if(portfolios.isEmpty){
+        return const Nulldata();
       }
       else{
         return ListView.builder(
