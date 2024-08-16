@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import '../services/authentication/auth_services.dart';
 import 'main_screens/home_screen.dart';
 import 'main_screens/portfolio_screen.dart';
-import 'main_screens/tempscreen.dart';
 class ScreenWrapper extends StatefulWidget {
   const ScreenWrapper({super.key});
 
@@ -29,7 +28,6 @@ class _ScreenWrapperState extends State<ScreenWrapper> {
             Icon(Icons.home),
             Icon(Icons.person),
             Icon(Icons.logout),
-            Icon(Icons.abc)
           ],
           onTap: (index){
             if(index==1){
@@ -52,13 +50,6 @@ class _ScreenWrapperState extends State<ScreenWrapper> {
               });
 
             }
-            if(index==3){
-              setState(() {
-                homescreen = false;
-                portfolioscreen = false;
-                tempscreen = true;
-              });
-            }
           },
           color: const Color.fromARGB(255, 130, 123, 230),
           buttonBackgroundColor: Colors.transparent,
@@ -76,11 +67,6 @@ class _ScreenWrapperState extends State<ScreenWrapper> {
               visible: portfolioscreen,
               child: const PortfolioScreen(),
             ),
-            Visibility(
-              visible: tempscreen,
-              child: const Tempscreen(),
-
-            )
           ],
         )
 
