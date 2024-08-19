@@ -4,7 +4,6 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:stock_math_final/services/components/nulldata.dart';
 
@@ -23,6 +22,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
   String username = '';
   String final_username = '';
   Stream<List<PortfolioModel>>? portfolios = Historyservice().portfolio;
+
   @override
   void initState() {
     super.initState();
@@ -36,6 +36,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
   @override
 
   Widget build(BuildContext context) {
+
     return StreamProvider<List<PortfolioModel>?>.value(
       value: portfolios,
       initialData: null,
@@ -45,20 +46,8 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
           return Nulldata();
         }
         else{
-          return Scaffold(
-              appBar: AppBar(
-                actions: [
-                  const Spacer(flex: 1,),
-
-                  Text('$final_username’s Portfolio',
-                    style: GoogleFonts.sourceCodePro(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20
-                    ),),
-                  const Spacer(flex: 5,)
-                ],
-              ),
-              body: const PortfolioList()
+          return const Scaffold(
+              body: PortfolioList()
           );
         }
       },

@@ -31,7 +31,7 @@ class _OnboardingscreenState extends State<Onboardingscreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Text('Equity',
@@ -39,14 +39,14 @@ class _OnboardingscreenState extends State<Onboardingscreen> {
                             fontSize: 45,
                             fontWeight: FontWeight.w700,
                             fontFamily: 'Poppins',
-                            color: Colors.green
+                            color: Colors.green[800]
                         ),),
                       Text('Math',
                         style: TextStyle(
                             fontSize: 45,
                             fontWeight: FontWeight.w700,
                             fontFamily: 'Poppins',
-                            color: Colors.red
+                            color: Colors.red[800]
                         ),)
                     ],
                   ),
