@@ -122,81 +122,92 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     SizedBox(height: height * 0.026143791,),
                     Text('Enter the details of the stock',style: GoogleFonts.sourceCodePro(color: Colors.black54,fontWeight: FontWeight.bold),),
-                    TextFormField(
-                      readOnly: true,
-                      onTap: (){
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return StatefulBuilder(
-                              builder: (context,StateSetter setState){
-                                return AlertDialog(
-                                  title:TextField(
-                                    decoration: InputDecoration(
-                                      hintText: 'Search For a Stock',
-                                      hintStyle: GoogleFonts.sourceCodePro(
-                                          fontWeight: FontWeight.bold
-                                      ),
-
-                                      border: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(10)
-                                      ),
-
-                                    ),
-                                    controller: _searchController,
-                                    onChanged: (val){
-
-                                      setState(() {
-                                        _foundresults = _filterResults(_searchController.text);
-                                      });
-                                    },
-                                  ),
-                                  content: ListView.builder(
-                                    shrinkWrap: false, // Set shrinkWrap to true
-                                    itemCount: _foundresults.length,
-                                    itemBuilder: (context, index) {
-                                      return Padding(
-                                        padding: const EdgeInsets.symmetric(horizontal: 0,vertical: 8),
-                                        child: Text(_foundresults[index]['stock'].toString(),
-                                          style: GoogleFonts.sourceCodePro(
-                                            letterSpacing: 0.01,
-                                            fontSize: 17,
-                                            fontWeight: FontWeight.w500
-                                          )
-                                          ,
+                    Padding(
+                      padding: EdgeInsets.only(top: height * 0.010457516,bottom: width * 0.044444444),
+                      child: TextFormField(
+                        readOnly: true,
+                        onTap: (){
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return StatefulBuilder(
+                                builder: (context,StateSetter setState){
+                                  return AlertDialog(
+                                    title:TextField(
+                                      decoration: InputDecoration(
+                                        hintText: 'Search For a Stock',
+                                        hintStyle: GoogleFonts.sourceCodePro(
+                                            fontWeight: FontWeight.bold
                                         ),
-                                      );
-                                    },
-                                  ),
-                                );
-                              },
-                            );
-                          },
-                        );
-                      },
-                      decoration: InputDecoration(
-                        hintText: 'Stock Symbol',
-                        hintStyle: GoogleFonts.sourceCodePro(
-                            fontWeight: FontWeight.bold
+
+                                        border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(10)
+                                        ),
+
+                                      ),
+                                      controller: _searchController,
+                                      onChanged: (val){
+
+                                        setState(() {
+                                          _foundresults = _filterResults(_searchController.text);
+                                        });
+                                      },
+                                    ),
+                                    content: ListView.builder(
+                                      shrinkWrap: false, // Set shrinkWrap to true
+                                      itemCount: _foundresults.length,
+                                      itemBuilder: (context, index) {
+                                        return GestureDetector(
+                                          onTap: (){
+                                            setState((){
+                                              stocksymbol.text = '${_foundresults[index]['symbol']}.BSE';
+                                              Navigator.pop(context);
+                                            });
+
+                                          },
+                                          child: Padding(
+                                            padding: const EdgeInsets.symmetric(vertical: 8),
+                                            child: Text(_foundresults[index]['stock'].toString(),
+                                            style: GoogleFonts.sourceCodePro(
+                                              letterSpacing: 0.01,
+                                              fontSize: 17,
+                                              fontWeight: FontWeight.w400
+                                            ),),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                          );
+                        },
+                        decoration: InputDecoration(
+                          hintText: 'Stock Name',
+                          hintStyle: GoogleFonts.sourceCodePro(
+                              fontWeight: FontWeight.bold
+                          ),
+
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10)
+                          ),
+                          prefixIcon: const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 8),
+                              child: Icon(
+                                  CupertinoIcons.graph_circle_fill
+                              )
+                          ),
+
                         ),
-        
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        ),
-                        prefixIcon: const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 8),
-                            child: Icon(
-                                CupertinoIcons.graph_circle_fill
-                            )
-                        ),
-        
+                        controller: stocksymbol,
+                        validator: (value){
+                          if(value == null || value.isEmpty){
+                            return 'Enter The Stock Name';
+                          }
+                          return null;
+                        },
                       ),
-                      validator: (value){
-                        if(value == null || value.isEmpty){
-                          return 'Enter The Stock Symbol';
-                        }
-                        return null;
-                      },
                     ),
         
                     Form(
