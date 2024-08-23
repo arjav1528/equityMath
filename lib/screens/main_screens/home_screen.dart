@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gif_view/gif_view.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_animated_button/elevated_layer_button.dart';
 import '../../services/API/remote_service.dart';
@@ -23,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final _formkey = GlobalKey<FormState>();
   TextEditingController stocksymbol = TextEditingController();
+  TextEditingController stockname = TextEditingController();
   TextEditingController purchasedate = TextEditingController();
   TextEditingController selldate = TextEditingController();
   TextEditingController quantity = TextEditingController();
@@ -71,20 +72,11 @@ class _HomeScreenState extends State<HomeScreen> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Colors.black87,
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            Column(
-              children: [
-                SizedBox(height: height * 0.339869281,),
-                Opacity(
-                  opacity: 0.1,
-                  child: Center(
-                      child: GifView.asset('assets/gifs/stock.gif')
-                  ),
-                ),
-              ],
-            ),
+            SvgPicture.asset('assets/icons/home.svg'),
             SafeArea(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: width * 0.055555556),
@@ -118,10 +110,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Center(
                       child: Text('A Stock?',
-                        style: GoogleFonts.sourceCodePro(fontSize: 30),),
+                        style: GoogleFonts.sourceCodePro(fontSize: 30,color: Colors.white),),
                     ),
                     SizedBox(height: height * 0.026143791,),
-                    Text('Enter the details of the stock',style: GoogleFonts.sourceCodePro(color: Colors.black54,fontWeight: FontWeight.bold),),
+                    Text('Enter the details of the stock',style: GoogleFonts.sourceCodePro(color: Colors.white38,fontWeight: FontWeight.bold),),
                     Padding(
                       padding: EdgeInsets.only(top: height * 0.010457516,bottom: width * 0.044444444),
                       child: TextFormField(
@@ -161,9 +153,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                           onTap: (){
                                             setState((){
                                               stocksymbol.text = '${_foundresults[index]['symbol']}.BSE';
+                                              stockname.text = _foundresults[index]['stock']!;
                                               Navigator.pop(context);
-                                            });
 
+                                              // Navigator.pop(context);
+                                            });
                                           },
                                           child: Padding(
                                             padding: const EdgeInsets.symmetric(vertical: 8),
@@ -183,24 +177,29 @@ class _HomeScreenState extends State<HomeScreen> {
                             },
                           );
                         },
+                        style: GoogleFonts.sourceCodePro(
+                          color: Colors.white
+                        ),
                         decoration: InputDecoration(
                           hintText: 'Stock Name',
                           hintStyle: GoogleFonts.sourceCodePro(
-                              fontWeight: FontWeight.bold
+                              fontWeight: FontWeight.bold,
+                            color: Colors.white
                           ),
 
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10)
+                              borderRadius: BorderRadius.circular(10),
                           ),
                           prefixIcon: const Padding(
                               padding: EdgeInsets.symmetric(horizontal: 8),
                               child: Icon(
-                                  CupertinoIcons.graph_circle_fill
+                                  CupertinoIcons.graph_circle_fill,
+                                color: Colors.white,
                               )
                           ),
 
                         ),
-                        controller: stocksymbol,
+                        controller: stockname,
                         validator: (value){
                           if(value == null || value.isEmpty){
                             return 'Enter The Stock Name';
@@ -218,6 +217,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             padding: EdgeInsets.only(top: height * 0.010457516,bottom: width * 0.044444444),
                             child: TextFormField(
                               onChanged: (val){},
+                              style: GoogleFonts.sourceCodePro(color: Colors.white),
                               controller: quantity,
                               keyboardType: TextInputType.number,
                               inputFormatters: [
@@ -228,7 +228,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               decoration: InputDecoration(
                                 hintText: 'No. of Stock',
                                 hintStyle: GoogleFonts.sourceCodePro(
-                                  fontWeight: FontWeight.bold
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white
                                 ),
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10)
@@ -236,7 +237,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 prefixIcon: const Padding(
                                     padding: EdgeInsets.symmetric(horizontal: 8),
                                     child: Icon(
-                                        CupertinoIcons.number
+                                        CupertinoIcons.number,
+                                      color: Colors.white,
                                     )
                                 ),
         
@@ -258,20 +260,23 @@ class _HomeScreenState extends State<HomeScreen> {
                               onChanged: (val){},
                               controller: purchasedate,
                               readOnly: true,
+                              style: GoogleFonts.sourceCodePro(color: Colors.white),
                               decoration: InputDecoration(
                                 hintText: 'Purchase Date',
                                 hintStyle: GoogleFonts.sourceCodePro(
-                                  fontWeight: FontWeight.bold
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white
                                 ),
         
-                                labelStyle: GoogleFonts.sourceCodePro(),
+                                labelStyle: GoogleFonts.sourceCodePro(color: Colors.white),
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10)
                                 ),
                                 prefixIcon: const Padding(
                                   padding: EdgeInsets.symmetric(horizontal: 8),
                                   child: Icon(
-                                      CupertinoIcons.calendar
+                                      CupertinoIcons.calendar,
+                                    color: Colors.white,
                                   ),
                                 ),
         
@@ -294,22 +299,25 @@ class _HomeScreenState extends State<HomeScreen> {
                                 _selectDate(selldate);
                               },
                               onChanged: (val){},
+                              style: GoogleFonts.sourceCodePro(color: Colors.white),
                               controller: selldate,
                               readOnly: true,
                               decoration: InputDecoration(
                                 hintText: 'Sell Date',
                                 hintStyle: GoogleFonts.sourceCodePro(
-                                  fontWeight: FontWeight.bold
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white
                                 ),
         
-                                labelStyle: GoogleFonts.sourceCodePro(),
+                                labelStyle: GoogleFonts.sourceCodePro(color: Colors.white),
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10)
                                 ),
                                 prefixIcon: const Padding(
                                   padding: EdgeInsets.symmetric(horizontal: 8),
                                   child: Icon(
-                                      CupertinoIcons.calendar
+                                      CupertinoIcons.calendar,
+                                    color: Colors.white,
                                   ),
                                 ),
         
@@ -340,8 +348,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             double slow = double.parse(rates['Time Series (Daily)'][selldate.text]['3. low']);
                             purchaserate = average(phigh, plow);
                             sellrate = average(shigh, slow);
-                            await Historyservice().saveTransaction(stocksymbol.text, purchasedate.text, selldate.text, double.parse(quantity.text), purchaserate, sellrate);
-        
+                            await Historyservice().saveTransaction(stocksymbol.text, purchasedate.text, selldate.text, double.parse(quantity.text), purchaserate, sellrate,stockname.text);
+
                           }
                           else{
                             if (kDebugMode) {
@@ -353,16 +361,18 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         buttonHeight: height * 0.058823529,
                         buttonWidth: width * 0.694444444,
-                        animationDuration: const Duration(milliseconds: 200),
+                        animationDuration: const Duration(milliseconds: 50),
                         animationCurve: Curves.easeIn,
                         topDecoration: BoxDecoration(
                             color: const Color.fromARGB(255, 130, 123, 230),
-                            border: Border.all()
+                            border: Border.all(),
+                          borderRadius: BorderRadius.circular(10)
                         ),
                         topLayerChild: Text('Update Portfolio',style: GoogleFonts.sourceCodePro(fontSize: 20,color: Colors.white),),
                         baseDecoration: BoxDecoration(
                             color: Colors.transparent,
-                            border: Border.all()
+                            border: Border.all(),
+                            borderRadius: BorderRadius.circular(10)
                         ),
                       ),
                     ),

@@ -53,7 +53,7 @@ class _TypewriterTextState extends State<TypewriterText> {
   @override
   Widget build(BuildContext context) {
     if(homescreen){
-      return Text(text1,style: GoogleFonts.sourceCodePro(fontSize: 30),);
+      return Text(text1,style: GoogleFonts.sourceCodePro(fontSize: 30,color: Colors.white),);
     }
     else{
       return Text(

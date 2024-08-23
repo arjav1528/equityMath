@@ -10,7 +10,7 @@ class Historyservice{
   final String uid = FirebaseAuth.instance.currentUser!.uid;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   // ignore: non_constant_identifier_names
-  Future saveTransaction(String stock_symbol,String purchasedate,String selldate,double quantity,double purchaserate,double sellrate) async {
+  Future saveTransaction(String stock_symbol,String purchasedate,String selldate,double quantity,double purchaserate,double sellrate,String stock) async {
     double difference = sellrate - purchaserate;
     String status = difference>0 ? 'Profit' : 'Loss';
     double amount =  quantity * difference;
@@ -23,7 +23,8 @@ class Historyservice{
       'sell_date': selldate,
       'sell_rate' : sellrate,
       'status' : status,
-      'timestamp' : FieldValue.serverTimestamp()
+      'timestamp' : FieldValue.serverTimestamp(),
+      'stock' : stock
     });
   }
   List<PortfolioModel> _portfolioList(QuerySnapshot snapshot){
@@ -37,7 +38,8 @@ class Historyservice{
           purchase_rate: doc['purchase_rate'],
           status: doc['status'],
           stock_symbol: doc['stock_symbol'],
-          timestamp: doc['timestamp']
+          timestamp: doc['timestamp'],
+          stock: doc['stock']
       );
     }).toList();
   }

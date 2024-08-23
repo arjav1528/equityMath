@@ -25,9 +25,9 @@ class _ScreenWrapperState extends State<ScreenWrapper> {
           key: key,
           index: 0,
           items: const [
-            Icon(Icons.home),
-            Icon(Icons.person),
-            Icon(Icons.logout),
+            Icon(Icons.home,color: Colors.white,),
+            Icon(Icons.person,color: Colors.white,),
+            Icon(Icons.logout,color: Colors.white,),
           ],
           onTap: (index){
             if(index==1){
@@ -53,9 +53,9 @@ class _ScreenWrapperState extends State<ScreenWrapper> {
           },
           color: const Color.fromARGB(255, 130, 123, 230),
           buttonBackgroundColor: Colors.transparent,
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.black87,
           animationCurve: Curves.easeOutQuart,
-          animationDuration: const Duration(milliseconds: 600),
+          animationDuration: const Duration(milliseconds: 300),
         ),
         body: Stack(
           children: [

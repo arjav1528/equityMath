@@ -16,10 +16,31 @@ class PortfolioCard extends StatefulWidget {
   double purchaserate;
   double sellrate;
   double quantity;
-  PortfolioCard({super.key, required this.amount,required this.status,required this.purchasedate,required this.purchaserate,required this.quantity,required this.selldate,required this.sellrate,required this.stock_symbol});
+  String stock;
+  PortfolioCard({super.key,
+    required this.amount,
+    required this.status,
+    required this.purchasedate,
+    required this.purchaserate,
+    required this.quantity,
+    required this.selldate,
+    required this.sellrate,
+    required this.stock_symbol,
+    required this.stock
+  });
 
   @override
-  State<PortfolioCard> createState() => _PortfolioCardState(status: status,stock_symbol: stock_symbol,selldate: selldate,sellrate: sellrate,purchasedate: purchasedate,amount: amount,quantity: quantity, purchaserate: purchaserate,);
+  State<PortfolioCard> createState() => _PortfolioCardState(
+    status: status,
+    stock_symbol: stock_symbol,
+    selldate: selldate,
+    sellrate: sellrate,
+    purchasedate: purchasedate,
+    amount: amount,
+    quantity: quantity,
+    purchaserate: purchaserate,
+    stock: stock
+  );
 }
 
 class _PortfolioCardState extends State<PortfolioCard> {
@@ -31,7 +52,18 @@ class _PortfolioCardState extends State<PortfolioCard> {
   double purchaserate;
   double sellrate;
   double quantity;
-  _PortfolioCardState({required this.amount,required this.status,required this.purchasedate,required this.purchaserate,required this.quantity,required this.selldate,required this.sellrate,required this.stock_symbol});
+  String stock;
+  _PortfolioCardState({
+    required this.amount,
+    required this.status,
+    required this.purchasedate,
+    required this.purchaserate,
+    required this.quantity,
+    required this.selldate,
+    required this.sellrate,
+    required this.stock_symbol,
+    required this.stock
+  });
 
   @override
   Widget build(BuildContext context) {
