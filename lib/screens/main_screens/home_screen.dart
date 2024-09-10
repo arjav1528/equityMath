@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+// ignore: unused_import
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_animated_button/elevated_layer_button.dart';
@@ -76,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            SvgPicture.asset('assets/icons/home.svg'),
+            // SvgPicture.asset('assets/icons/home.svg'),
             SafeArea(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: width * 0.055555556),
@@ -371,7 +372,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         topLayerChild: Text('Update Portfolio',style: GoogleFonts.sourceCodePro(fontSize: 20,color: Colors.white),),
                         baseDecoration: BoxDecoration(
                             color: Colors.transparent,
-                            border: Border.all(),
+                            border: Border.all(
+                              color: Colors.white
+                            ),
                             borderRadius: BorderRadius.circular(10)
                         ),
                       ),

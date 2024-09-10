@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:stock_math_final/services/components/portfolio_card.dart';
 
@@ -55,7 +54,7 @@ class _PortfolioListState extends State<PortfolioList> {
       backgroundColor: Colors.black87,
       body: Stack(
         children: [
-          SvgPicture.asset('assets/icons/portfolio.svg'),
+          // SvgPicture.asset('assets/icons/portfolio.svg'),
           Column(
             children: [
               Container(
