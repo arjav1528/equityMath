@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:stock_math_final/screens/main_screens/onboardingscreen.dart';
 import 'firebase_options.dart';
