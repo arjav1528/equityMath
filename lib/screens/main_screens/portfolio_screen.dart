@@ -24,9 +24,9 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
   Widget build(BuildContext context) {
 
     return StreamProvider<List<PortfolioModel>?>.value(
-      value: portfolios,
-      initialData: null,
-      child:  const PortfolioList()
+        value: portfolios,
+        initialData: const [],
+        child:  const PortfolioList()
     );
-  }
+    }
 }
